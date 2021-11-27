@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="#EFEEED"
+    tools:context=".AddProduct">
+
+    <EditText
+        android:id="@+id/etNameAddProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTint="@color/pink"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name of product:"
+        tools:layout_editor_absoluteX="13dp"
+        tools:layout_editor_absoluteY="199dp" />
+
+    <EditText
+        android:id="@+id/etColorAddProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Color:"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="257dp" />
+
+    <EditText
+        android:id="@+id/etSizeAddProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Size:"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="322dp" />
+
+    <EditText
+        android:id="@+id/etPriceAddProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Price:"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="379dp" />
+
+    <ImageView
+        android:id="@+id/ivPhotoAddProduct"
+        android:layout_width="254dp"
+        android:layout_height="144dp"
+        tools:layout_editor_absoluteX="78dp"
+        tools:layout_editor_absoluteY="16dp"
+        tools:src="@tools:sample/avatars" />
+
+    <RadioButton
+        android:id="@+id/radioButton"
+        android:layout_width="88dp"
+        android:layout_height="32dp"
+        android:text="male"
+        tools:layout_editor_absoluteX="13dp"
+        tools:layout_editor_absoluteY="431dp" />
+
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="91dp"
+        android:layout_height="36dp"
+        android:text="female"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="463dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#B7C7D5"
+        android:text="add"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="631dp" />
+
+    <Spinner
+        android:id="@+id/etSpinnerProduct"
+        android:layout_width="336dp"
+        android:layout_height="86dp"
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="525dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
