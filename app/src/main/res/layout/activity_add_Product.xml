@@ -61,6 +61,7 @@
         android:layout_width="88dp"
         android:layout_height="32dp"
         android:text="male"
+        android:onClick="setMale"
         tools:layout_editor_absoluteX="13dp"
         tools:layout_editor_absoluteY="431dp" />
 
