@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import static android.view.View.*;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -16,9 +18,11 @@ import android.util.Log;
 import android.util.Size;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -40,16 +44,22 @@ public class AddProduct extends AppCompatActivity {
     private ImageView ivPhoto;
     private FirebaseServices fbs;
     private Uri filePath;
+    private RadioGroup radioGroup;
     private RadioButton rd1,rd2;
+    private Button btnDisplay;
     StorageReference storageReference;
 
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_Product);
         connectComponents();
+
     }
+
+
 
     private void connectComponents() {
         etName = findViewById(R.id.etNameAddProduct);
@@ -64,11 +74,16 @@ public class AddProduct extends AppCompatActivity {
         spCat.setAdapter(new ArrayAdapter<Bags>(this, android.R.layout.simple_list_item_1, Bags.values()));
         spCat.setAdapter(new ArrayAdapter<Clothes>(this, android.R.layout.simple_list_item_1, Clothes.values()));
         spCat.setAdapter(new ArrayAdapter<Decor>(this, android.R.layout.simple_list_item_1,Decor.values()));
+        radioGroup = (RadioGroup) findViewById(R.id.radio);
+        btnDisplay = (Button) findViewById(R.id.btnDisplay);
+
+        btnDisplay.setOnClickListener(new OnClickListener());
     }
 
     public void add(View view) {
         // check if any field is empty
         String name, Color, Size,Price, photo,category;
+        boolean gender;
         name = etName.getText().toString();
        Color = etColor.getText().toString();
         Size = etSize.getText().toString();
@@ -77,6 +92,13 @@ public class AddProduct extends AppCompatActivity {
         if (ivPhoto.getDrawable() == null)
             photo = "no_image";
         else photo = ivPhoto.getDrawable().toString();
+        int selectedId = radioGroup.getCheckedRadioButtonId();
+        rd1 = (RadioButton) findViewById(selectedId);
+
+        Toast.makeText(AddProduct.this, rd1.getText(), Toast.LENGTH_SHORT).show();
+
+
+        if ()
 
         if (name.trim().isEmpty() ||Color.trim().isEmpty() || Size.trim().isEmpty() ||
                Price.trim().isEmpty() || category.trim().isEmpty() || photo.trim().isEmpty())
@@ -85,7 +107,7 @@ public class AddProduct extends AppCompatActivity {
             return;
         }
 
-        Product product = new Product (name, Color,Size,Accessories.valueOf(category), photo, Price);
+        Product product = new Product (name, Color,Size,Accessories.valueOf(category), photo, Price,gender);
 
         fbs.getFirestore().collection("restaurants")
                 .add(product)
@@ -130,6 +152,7 @@ public class AddProduct extends AppCompatActivity {
                     Toast.makeText(this, "Canceled", Toast.LENGTH_SHORT).show();
                 }
             }
+
         }
     
 
@@ -210,6 +233,9 @@ public class AddProduct extends AppCompatActivity {
     }
 
     public void setMale(View view) {
+        rd1.isChecked();
+
+
         rd1.checked = true;
         rd2.checked = false;
     }

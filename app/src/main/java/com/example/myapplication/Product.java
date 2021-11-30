@@ -38,9 +38,7 @@ public class Product
     private String size;
     private String color;
     private  int visanumber;
-
-    public Product(String name, String color, String size, com.example.myapplication.Accessories valueOf, String photo, String price) {
-    }
+    private boolean gender;
 
     public com.example.myapplication.Accessories getAccessories() {
         return Accessories;
@@ -138,7 +136,13 @@ public class Product
         this.visanumber = visanumber;
     }
 
-   
+    public boolean isGender() {
+        return gender;
+    }
+
+    public void setGender(boolean gender) {
+        this.gender = gender;
+    }
 
     @Override
     public String toString() {
@@ -155,18 +159,7 @@ public class Product
                 ", size='" + size + '\'' +
                 ", color='" + color + '\'' +
                 ", visanumber=" + visanumber +
+                ", gender=" + gender +
                 '}';
     }
-
-    
-
-    
-
-
-
-
-
-
-
-
 }
