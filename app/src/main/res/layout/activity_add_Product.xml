@@ -60,18 +60,19 @@
         android:id="@+id/rdgroupMaleFemaleAddProduct"
         android:layout_width="99dp"
         android:layout_height="79dp"
+        android:onClick="btnDisplay"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="435dp">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/rdMaleAddProduct"
             android:layout_width="88dp"
             android:layout_height="32dp"
             android:onClick="setMale"
             android:text="male" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/rdFemaleAddProduct"
             android:layout_width="91dp"
             android:layout_height="36dp"
             android:text="female" />
@@ -83,6 +84,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#B7C7D5"
         android:text="add"
+        android:onClick="add"
         tools:layout_editor_absoluteX="161dp"
         tools:layout_editor_absoluteY="631dp" />
 

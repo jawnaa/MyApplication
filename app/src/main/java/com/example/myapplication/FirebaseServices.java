@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 
@@ -18,6 +19,11 @@ public class FirebaseServices {
     }
 
     public FirebaseFirestore getFirestore()
+    {
+        return firestore;
+    }
+
+    public FirebaseFirestore getFire()
     {
         return firestore;
     }
@@ -43,6 +49,10 @@ public class FirebaseServices {
 
         return instance;
     }
+
+
+
+
 }
 
 
