@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class AllProductActivity extends AppCompatActivity {
     private RecyclerView rvAllProduct;
-    AdapterProduct adapter;
+    Adapter adapter;
     FirebaseServices fbs;
     ArrayList<Product> rests;
 
@@ -33,16 +33,17 @@ public class AllProductActivity extends AppCompatActivity {
         readData();
 
         // set up the RecyclerView
-        RecyclerView recyclerView = findViewById(R.id.rvRestsAllRest);
+        RecyclerView recyclerView = findViewById(R.id.rvAllProducts);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new AdapterProduct(this, rests);
-        recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(Adapter);
     }
 
 
 
-      private  void readData()  {
-        fbs.getFire().collection("restaurants")
+      private  void readData()
+      {
+        fbs.getFire().collection("product")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
