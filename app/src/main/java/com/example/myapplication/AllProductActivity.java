@@ -17,9 +17,9 @@ import java.util.ArrayList;
 
 public class AllProductActivity extends AppCompatActivity {
     private RecyclerView rvAllProduct;
-    Adapter adapter;
+    AdapterProduct adapter;
     FirebaseServices fbs;
-    ArrayList<Product> rests;
+    ArrayList<Product> products;
 
 
 
@@ -29,14 +29,14 @@ public class AllProductActivity extends AppCompatActivity {
         setContentView(R.layout.activity_all_product);
 
         fbs = FirebaseServices.getInstance();
-        rests = new ArrayList<Product>();
+        products = new ArrayList<Product>();
         readData();
 
         // set up the RecyclerView
         RecyclerView recyclerView = findViewById(R.id.rvAllProducts);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new AdapterProduct(this, rests);
-        recyclerView.setAdapter(Adapter);
+       adapter = new AdapterProduct(this, products);
+        recyclerView.setAdapter(adapter);
     }
 
 
@@ -50,7 +50,7 @@ public class AllProductActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                rests.add(document.toObject(Product.class));
+                                products.add(document.toObject(Product.class));
                             }
                         } else {
                             Log.e("AllRestActivity: readData()", "Error getting documents.", task.getException());

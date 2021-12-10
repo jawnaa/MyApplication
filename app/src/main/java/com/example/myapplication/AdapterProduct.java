@@ -1,30 +1,40 @@
 package com.example.myapplication;
 
-public class AdapterProduct {
-    public class AdapterRestaurant extends RecyclerView.Adapter<AdapterRestaurant.ViewHolder> {
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-        private List<Restaurant> mData;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.List;
+
+    public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHolder> {
+
+        private List<Product> mData;
         private LayoutInflater mInflater;
-        private AdapterRestaurant.ItemClickListener mClickListener;
+        private com.example.myapplication.AdapterProduct.ItemClickListener mClickListener;
 
         // data is passed into the constructor
-        AdapterRestaurant(Context context, List<Restaurant> data) {
+        AdapterProduct(Context context, List<Product> data) {
             this.mInflater = LayoutInflater.from(context);
             this.mData = data;
         }
 
         // inflates the row layout from xml when needed
         @Override
-        public AdapterRestaurant.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = mInflater.inflate(R.layout.row, parent, false);
-            return new AdapterRestaurant.ViewHolder(view);
+        public com.example.myapplication.AdapterProduct.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            View view = mInflater.inflate(R.layout.rowproduct12, parent, false);
+            return new AdapterProduct.ViewHolder(view);
         }
 
         // binds the data to the TextView in each row
         @Override
-        public void onBindViewHolder(AdapterRestaurant.ViewHolder holder, int position) {
-            Restaurant rest = mData.get(position);
-            holder.tvName.setText(rest.getName());
+        public void onBindViewHolder(AdapterProduct.ViewHolder holder, int position) {
+            Product product = mData.get(position);
+            holder.tvName.setText(product.getColor());
             //holder.ivPhoto.setImageDrawable(rest.getPhoto());
         }
 
@@ -42,8 +52,8 @@ public class AdapterProduct {
 
             ViewHolder(View itemView) {
                 super(itemView);
-                tvName = itemView.findViewById(R.id.tvNameRestRow);
-                ivPhoto = itemView.findViewById(R.id.ivPhotoRestRow);
+                tvName = itemView.findViewById(R.id.tvNameProductRow);
+                ivPhoto = itemView.findViewById(R.id.ivPhotoProductRow);
                 itemView.setOnClickListener(this);
             }
 
@@ -54,12 +64,12 @@ public class AdapterProduct {
         }
 
         // convenience method for getting data at click position
-        Restaurant getItem(int id) {
+        Product getItem(int id) {
             return mData.get(id);
         }
 
         // allows clicks events to be caught
-        void setClickListener(AdapterRestaurant.ItemClickListener itemClickListener) {
+        void setClickListener(AdapterProduct.ItemClickListener itemClickListener) {
             this.mClickListener = itemClickListener;
         }
 
@@ -68,3 +78,4 @@ public class AdapterProduct {
             void onItemClick(View view, int position);
         }
     }
+
