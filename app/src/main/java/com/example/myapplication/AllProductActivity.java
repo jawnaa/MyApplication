@@ -43,7 +43,7 @@ public class AllProductActivity extends AppCompatActivity {
 
       private  void readData()
       {
-        fbs.getFire().collection("product")
+        fbs.getFire().collection("products")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override

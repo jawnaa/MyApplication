@@ -120,7 +120,7 @@ public class AddProduct extends AppCompatActivity {
         Product product = new Product(AccessoriesCat.valueOf(category), ShoesCat.valueOf(category),
                 BagsCat.valueOf(category), ClothesCat.valueOf(category), DecorCat.valueOf(category), photo, Size, Color, Price, Gender);
 
-        fbs.getFirestore().collection("restaurants")
+        fbs.getFirestore().collection("Product")
                 .add(product)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
 

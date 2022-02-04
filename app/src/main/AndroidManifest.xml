@@ -13,7 +13,6 @@
             android:name=".AllProductActivity"
             android:exported="false" />
         <activity android:name=".AddProduct" />
-        <activity android:name=".Main2Activity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
