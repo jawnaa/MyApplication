@@ -11,70 +11,91 @@
         android:id="@+id/etNameAddProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginBottom="13dp"
         android:drawableTint="@color/pink"
         android:ems="10"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         android:text="Name of product:"
-        tools:layout_editor_absoluteX="13dp"
-        tools:layout_editor_absoluteY="199dp" />
+        app:layout_constraintBottom_toTopOf="@+id/etColorAddProduct"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivPhotoAddProduct" />
 
     <EditText
         android:id="@+id/etColorAddProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="20dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         android:text="Color:"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="257dp" />
+        app:layout_constraintBottom_toTopOf="@+id/etSizeAddProduct"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etNameAddProduct" />
 
     <EditText
         android:id="@+id/etSizeAddProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="12dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         android:text="Size:"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="322dp" />
+        app:layout_constraintBottom_toTopOf="@+id/etPriceAddProduct"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etColorAddProduct" />
 
     <EditText
         android:id="@+id/etPriceAddProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="11dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         android:text="Price:"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="379dp" />
+        app:layout_constraintBottom_toTopOf="@+id/rdgroupMaleFemaleAddProduct"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSizeAddProduct" />
 
     <ImageView
         android:id="@+id/ivPhotoAddProduct"
         android:layout_width="254dp"
-        android:layout_height="144dp"
-        tools:layout_editor_absoluteX="78dp"
-        tools:layout_editor_absoluteY="16dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="39dp"
+        app:layout_constraintBottom_toTopOf="@+id/etNameAddProduct"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars" />
 
     <RadioGroup
         android:id="@+id/rdgroupMaleFemaleAddProduct"
         android:layout_width="99dp"
-        android:layout_height="79dp"
-        android:onClick="btnDisplay"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="435dp">
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="11dp"
+        app:layout_constraintBottom_toTopOf="@+id/etSpinnerProduct"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPriceAddProduct">
 
         <RadioButton
             android:id="@+id/rdMaleAddProduct"
             android:layout_width="88dp"
-            android:layout_height="32dp"
-            android:onClick="setMale"
+            android:layout_height="48dp"
             android:text="male" />
 
         <RadioButton
             android:id="@+id/rdFemaleAddProduct"
             android:layout_width="91dp"
-            android:layout_height="36dp"
+            android:layout_height="48dp"
             android:text="female" />
     </RadioGroup>
 
@@ -82,17 +103,26 @@
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="52dp"
         android:backgroundTint="#B7C7D5"
-        android:text="add"
         android:onClick="add"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="631dp" />
+        android:text="add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSpinnerProduct" />
 
     <Spinner
         android:id="@+id/etSpinnerProduct"
-        android:layout_width="336dp"
-        android:layout_height="86dp"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="525dp" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rdgroupMaleFemaleAddProduct"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
