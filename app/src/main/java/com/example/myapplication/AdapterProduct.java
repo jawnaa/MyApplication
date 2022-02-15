@@ -1,13 +1,17 @@
 package com.example.myapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.io.Serializable;
 
 import java.util.List;
 
@@ -15,17 +19,32 @@ import java.util.List;
 
         private List<Product> mData;
         private LayoutInflater mInflater;
-        private com.example.myapplication.AdapterProduct.ItemClickListener mClickListener;
+        private Context context;
+
+        private final AdapterProduct.ItemClickListener mClickListener = new ItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                // get restaurant data
+                Product rest = mData.get(position);
+                // upload restaurant data
+                // goto details activity
+                Intent i = new Intent(context, ProductDetailsActivity.class);
+                i.putExtra("rest", (Serializable)rest);
+                context.startActivity(i);
+            }
+        };
+
 
         // data is passed into the constructor
         AdapterProduct(Context context, List<Product> data) {
             this.mInflater = LayoutInflater.from(context);
             this.mData = data;
+            this.context = context;
         }
 
         // inflates the row layout from xml when needed
         @Override
-        public com.example.myapplication.AdapterProduct.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public AdapterProduct.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = mInflater.inflate(R.layout.rowproduct12, parent, false);
             return new AdapterProduct.ViewHolder(view);
         }
@@ -68,10 +87,7 @@ import java.util.List;
             return mData.get(id);
         }
 
-        // allows clicks events to be caught
-        void setClickListener(AdapterProduct.ItemClickListener itemClickListener) {
-            this.mClickListener = itemClickListener;
-        }
+
 
         // parent activity will implement this method to respond to click events
         public interface ItemClickListener {

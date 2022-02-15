@@ -6,15 +6,15 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/ivPhoto1ProductDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="51dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="47dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvNameProductDetails"
         android:layout_width="149dp"
         android:layout_height="42dp"
         android:layout_marginStart="28dp"
@@ -26,7 +26,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvColorProductDetails"
         android:layout_width="152dp"
         android:layout_height="36dp"
         android:text="Color"
@@ -34,7 +34,7 @@
         tools:layout_editor_absoluteY="286dp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvSizeProductDetails"
         android:layout_width="152dp"
         android:layout_height="38dp"
         android:text="Size"
@@ -49,13 +49,13 @@
         android:layout_marginBottom="357dp"
         android:rotationY="141"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintStart_toStartOf="@+id/tvSizeProductDetails"
+        app:layout_constraintTop_toBottomOf="@+id/tvNameProductDetails">
 
     </com.google.android.material.chip.ChipGroup>
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tvPriceProductDetails"
         android:layout_width="149dp"
         android:layout_height="32dp"
         android:text="Price"
@@ -63,18 +63,35 @@
         tools:layout_editor_absoluteY="360dp" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/tvGenderProductDetails"
         android:layout_width="151dp"
         android:layout_height="32dp"
         android:text="Gender"
         tools:layout_editor_absoluteX="28dp"
         tools:layout_editor_absoluteY="254dp" />
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="355dp"
-        android:layout_height="147dp"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="430dp" />
+    <TextView
+        android:id="@+id/tvDescriptionProductDetails"
+        android:layout_width="339dp"
+        android:layout_height="220dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="424dp" />
+
+    <ImageView
+        android:id="@+id/ivPhoto2ProductDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="45dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/ivPhoto3ProductDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="280dp"
+        tools:layout_editor_absoluteY="48dp"
+        tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
