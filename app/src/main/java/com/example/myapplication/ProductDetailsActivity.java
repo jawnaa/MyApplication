@@ -23,11 +23,14 @@ public class ProductDetailsActivity  extends AppCompatActivity {
         Product rest = (Product) i.getSerializableExtra("rest");
 
         tvName.setText(Product.getName());
-        tvDescription.setText(Product.getName());
-        tvColor.setText(rest.getName());
-        tvSize.setText(rest.getName());
-        tvPrice.setText(rest.getName());
-        Picasso.get().load(rest.getPhoto()).into(ivPhoto);
+        tvDescription.setText(Product.getDescription());
+        tvColor.setText(Product.getColor());
+        tvSize.setText(Product.getSize());
+        tvPrice.setText(Product.getPrice());
+        picasso.get().load(Product.getPhoto()).into(ivPhoto1);
+        Picasso.get().load(Product.getPhoto()).into(ivPhoto2);
+        Picasso.get().load(Product.getPhoto()).into(ivPhoto3);
+
     }
 
     private void connectComponents() {

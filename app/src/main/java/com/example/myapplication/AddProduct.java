@@ -72,6 +72,7 @@ public class AddProduct extends AppCompatActivity {
         spCat.setAdapter(new ArrayAdapter<DecorCat>(this, android.R.layout.simple_list_item_1, DecorCat.values()));
         radioGroup = (RadioGroup) findViewById(R.id.radio);
         btnDisplay = (Button) findViewById(R.id.btnDisplay);
+        storageReference = fbs.getStorage().getReference();
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -116,7 +117,7 @@ public class AddProduct extends AppCompatActivity {
         }
 
         Product product = new Product(AccessoriesCat.valueOf(category), ShoesCat.valueOf(category),
-                BagsCat.valueOf(category), ClothesCat.valueOf(category), DecorCat.valueOf(category), photo, Size, Color, Price, Gender);
+                BagsCat.valueOf(category), ClothesCat.valueOf(category), DecorCat.valueOf(category), photo, Size, Color, Price, Name,Description,Gender);
 
         fbs.getFirestore().collection("Product")
                 .add(product)

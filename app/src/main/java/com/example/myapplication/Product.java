@@ -18,6 +18,7 @@ enum ClothesCat
 {
     dress, tshirt, pants, socks
 }
+
 enum DecorCat
 {
     decoration, blankets, tables, mirror
@@ -30,24 +31,36 @@ public class Product {
     private BagsCat Bags;
     private ClothesCat Clothes;
     private DecorCat Decor;
-    private String photos;
+    private String photos1;
+    private String photos2;
+    private String photos3;
     private String size;
     private String color;
     private String Price;
+    private String Name;
+    private String Description;
     private boolean Gender;
 
-    public Product(AccessoriesCat accessories, ShoesCat shoes, BagsCat bags, ClothesCat clothes, DecorCat decor, String photos, String size, String color, String price, boolean gender) {
-        Accessories = accessories;
-        Shoes = shoes;
-        Bags = bags;
-        Clothes = clothes;
-        Decor = decor;
-        this.photos = photos;
-        this.size = size;
-        this.color = color;
-        Price = price;
-        Gender = gender;
+    @Override
+    public String toString() {
+        return "Product{" +
+                "Accessories=" + Accessories +
+                ", Shoes=" + Shoes +
+                ", Bags=" + Bags +
+                ", Clothes=" + Clothes +
+                ", Decor=" + Decor +
+                ", photos1='" + photos1 + '\'' +
+                ", photos2='" + photos2 + '\'' +
+                ", photos3='" + photos3 + '\'' +
+                ", size='" + size + '\'' +
+                ", color='" + color + '\'' +
+                ", Price='" + Price + '\'' +
+                ", Name='" + Name + '\'' +
+                ", Description='" + Description + '\'' +
+                ", Gender=" + Gender +
+                '}';
     }
+
 
     public AccessoriesCat getAccessories() {
         return Accessories;
@@ -89,12 +102,28 @@ public class Product {
         Decor = decor;
     }
 
-    public String getPhotos() {
-        return photos;
+    public String getPhotos1() {
+        return photos1;
     }
 
-    public void setPhotos(String photos) {
-        this.photos = photos;
+    public void setPhotos1(String photos1) {
+        this.photos1 = photos1;
+    }
+
+    public String getPhotos2() {
+        return photos2;
+    }
+
+    public void setPhotos2(String photos2) {
+        this.photos2 = photos2;
+    }
+
+    public String getPhotos3() {
+        return photos3;
+    }
+
+    public void setPhotos3(String photos3) {
+        this.photos3 = photos3;
     }
 
     public String getSize() {
@@ -121,6 +150,22 @@ public class Product {
         Price = price;
     }
 
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
+    }
+
     public boolean isGender() {
         return Gender;
     }
@@ -128,21 +173,23 @@ public class Product {
     public void setGender(boolean gender) {
         Gender = gender;
     }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "Accessories=" + Accessories +
-                ", Shoes=" + Shoes +
-                ", Bags=" + Bags +
-                ", Clothes=" + Clothes +
-                ", Decor=" + Decor +
-                ", photos='" + photos + '\'' +
-                ", size='" + size + '\'' +
-                ", color='" + color + '\'' +
-                ", Price='" + Price + '\'' +
-                ", Gender=" + Gender +
-                '}';
-    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

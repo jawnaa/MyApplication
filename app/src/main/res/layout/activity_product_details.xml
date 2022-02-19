@@ -74,9 +74,9 @@
         android:id="@+id/tvDescriptionProductDetails"
         android:layout_width="339dp"
         android:layout_height="220dp"
-        android:text="TextView"
+        android:text="Description"
         tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="424dp" />
+        tools:layout_editor_absoluteY="421dp" />
 
     <ImageView
         android:id="@+id/ivPhoto2ProductDetails"
