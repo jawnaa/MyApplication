@@ -1,5 +1,5 @@
 package com.example.myapplication;
-
+import java.io.Serializable;
 enum AccessoriesCat
 {
     scarf,ring,earrings,bracelet,necklace
@@ -25,42 +25,101 @@ enum DecorCat
 }
 
 
-public class Product {
+public class Product implements Serializable {
+    private String name;
+    private String description;
+    private String address;
+    private AccessoriesCat category;
+    private ShoesCat category;
+    private BagsCat category;
+    private ClothesCat category;
+    private DecorCat category;
+    private String photo;
+    private String phone;
     private AccessoriesCat Accessories;
     private ShoesCat Shoes;
     private BagsCat Bags;
     private ClothesCat Clothes;
     private DecorCat Decor;
-    private String photos1;
-    private String photos2;
-    private String photos3;
+    private String photos;
     private String size;
     private String color;
     private String Price;
-    private String Name;
-    private String Description;
     private boolean Gender;
 
     @Override
     public String toString() {
         return "Product{" +
-                "Accessories=" + Accessories +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", address='" + address + '\'' +
+                ", category=" + category +
+                ", category=" + category +
+                ", category=" + category +
+                ", category=" + category +
+                ", category=" + category +
+                ", photo='" + photo + '\'' +
+                ", phone='" + phone + '\'' +
+                ", Accessories=" + Accessories +
                 ", Shoes=" + Shoes +
                 ", Bags=" + Bags +
                 ", Clothes=" + Clothes +
                 ", Decor=" + Decor +
-                ", photos1='" + photos1 + '\'' +
-                ", photos2='" + photos2 + '\'' +
-                ", photos3='" + photos3 + '\'' +
+                ", photos='" + photos + '\'' +
                 ", size='" + size + '\'' +
                 ", color='" + color + '\'' +
                 ", Price='" + Price + '\'' +
-                ", Name='" + Name + '\'' +
-                ", Description='" + Description + '\'' +
                 ", Gender=" + Gender +
                 '}';
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public AccessoriesCat getCategory() {
+        return category;
+    }
+
+    public void setCategory(DecorCat category) {
+        this.category = category;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
     public AccessoriesCat getAccessories() {
         return Accessories;
@@ -102,28 +161,12 @@ public class Product {
         Decor = decor;
     }
 
-    public String getPhotos1() {
-        return photos1;
+    public String getPhotos() {
+        return photos;
     }
 
-    public void setPhotos1(String photos1) {
-        this.photos1 = photos1;
-    }
-
-    public String getPhotos2() {
-        return photos2;
-    }
-
-    public void setPhotos2(String photos2) {
-        this.photos2 = photos2;
-    }
-
-    public String getPhotos3() {
-        return photos3;
-    }
-
-    public void setPhotos3(String photos3) {
-        this.photos3 = photos3;
+    public void setPhotos(String photos) {
+        this.photos = photos;
     }
 
     public String getSize() {
@@ -150,22 +193,6 @@ public class Product {
         Price = price;
     }
 
-    public String getName() {
-        return Name;
-    }
-
-    public void setName(String name) {
-        Name = name;
-    }
-
-    public String getDescription() {
-        return Description;
-    }
-
-    public void setDescription(String description) {
-        Description = description;
-    }
-
     public boolean isGender() {
         return Gender;
     }
@@ -173,23 +200,21 @@ public class Product {
     public void setGender(boolean gender) {
         Gender = gender;
     }
+
+    public void setCategory(ClothesCat category) {
+        this.category = category;
+    }
+
+    public void setCategory(BagsCat category) {
+        this.category = category;
+    }
+
+    public void setCategory(ShoesCat category) {
+        this.category = category;
+    }
+
+    public void setCategory(AccessoriesCat category) {
+        this.category = category;
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

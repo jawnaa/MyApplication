@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 public class ProductDetailsActivity  extends AppCompatActivity {
 
     private TextView tvName, tvDescription, tvColor, tvSize, tvPrice, tvGender;
-    private ImageView ivPhoto1, ivPhoto2,ivPhoto3;
+    private ImageView ivPhoto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,16 +22,15 @@ public class ProductDetailsActivity  extends AppCompatActivity {
 
         connectComponents();
         Intent i = this.getIntent();
-        Product rest = (Product) i.getSerializableExtra("rest");
+        Product product = (Product) i.getSerializableExtra("product");
 
-        tvName.setText(Product.getName());
-        tvDescription.setText(Product.getDescription());
-        tvColor.setText(Product.getColor());
-        tvSize.setText(Product.getSize());
-        tvPrice.setText(Product.getPrice());
-        picasso.get().load(Product.getPhoto()).into(ivPhoto1);
-        Picasso.get().load(Product.getPhoto()).into(ivPhoto2);
-        Picasso.get().load(Product.getPhoto()).into(ivPhoto3);
+        tvName.setText(product.getName());
+        tvDescription.setText(product.getDescription());
+        tvColor.setText(product.getColor());
+        tvSize.setText(product.getSize());
+        tvPrice.setText(product.getPrice());
+        tvGender.setText(product.getGender());
+        Picasso.get().load(product.getPhoto()).into(ivPhoto);
 
     }
 
@@ -40,8 +41,7 @@ public class ProductDetailsActivity  extends AppCompatActivity {
         tvPrice = findViewById(R.id.tvPriceProductDetails);
         tvSize = findViewById(R.id.tvSizeProductDetails);
         tvGender = findViewById(R.id.tvGenderProductDetails);
-        ivPhoto1 = findViewById(R.id.ivPhoto1ProductDetails);
-        ivPhoto2 = findViewById(R.id.ivPhoto2ProductDetails);
-        ivPhoto3 = findViewById(R.id.ivPhoto3ProductDetails);
+        ivPhoto = findViewById(R.id.ivPhotoProductDetails);
+
     }
 }

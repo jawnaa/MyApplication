@@ -79,7 +79,7 @@
         tools:layout_editor_absoluteY="421dp" />
 
     <ImageView
-        android:id="@+id/ivPhoto2ProductDetails"
+        android:id="@+id/ivPhotoProductDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="148dp"
@@ -87,7 +87,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
-        android:id="@+id/ivPhoto3ProductDetails"
+        android:id="@+id/ivPhotoProductDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="280dp"

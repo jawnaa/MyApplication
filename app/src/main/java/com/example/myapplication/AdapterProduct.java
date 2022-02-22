@@ -25,11 +25,11 @@ import java.util.List;
             @Override
             public void onItemClick(View view, int position) {
                 // get restaurant data
-                Product rest = mData.get(position);
+                Product product = mData.get(position);
                 // upload restaurant data
                 // goto details activity
                 Intent i = new Intent(context, ProductDetailsActivity.class);
-                i.putExtra("rest", (Serializable)rest);
+                i.putExtra("product", product);
                 context.startActivity(i);
             }
         };
