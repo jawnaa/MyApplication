@@ -24,54 +24,38 @@ enum DecorCat
     decoration, blankets, tables, mirror
 }
 
-
 public class Product implements Serializable {
     private String name;
     private String description;
-    private String address;
+    private String color;
     private AccessoriesCat category;
     private ShoesCat category;
     private BagsCat category;
     private ClothesCat category;
     private DecorCat category;
     private String photo;
-    private String phone;
-    private AccessoriesCat Accessories;
-    private ShoesCat Shoes;
-    private BagsCat Bags;
-    private ClothesCat Clothes;
-    private DecorCat Decor;
-    private String photos;
     private String size;
-    private String color;
-    private String Price;
+    private String price;
     private boolean Gender;
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", address='" + address + '\'' +
-                ", category=" + category +
-                ", category=" + category +
-                ", category=" + category +
-                ", category=" + category +
-                ", category=" + category +
-                ", photo='" + photo + '\'' +
-                ", phone='" + phone + '\'' +
-                ", Accessories=" + Accessories +
-                ", Shoes=" + Shoes +
-                ", Bags=" + Bags +
-                ", Clothes=" + Clothes +
-                ", Decor=" + Decor +
-                ", photos='" + photos + '\'' +
-                ", size='" + size + '\'' +
-                ", color='" + color + '\'' +
-                ", Price='" + Price + '\'' +
-                ", Gender=" + Gender +
-                '}';
+
+    public Product(){
     }
+
+
+
+public  Product  ( String name,String description, String color,AccessoriesCat category,
+                   ShoesCat category,BagsCat category,ClothesCat category,DecorCat category,String photo,
+                   String size,String price,boolean Gender) {
+    this.name = name;
+    this.description = description;
+    this.color = color;
+    this.category = category;
+    this.photo = photo;
+    this.size = size;
+    this.price = price;
+    this.Gender = Gender;
+}
 
     public String getName() {
         return name;
@@ -89,12 +73,12 @@ public class Product implements Serializable {
         this.description = description;
     }
 
-    public String getAddress() {
-        return address;
+    public String getColor() {
+        return color;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public AccessoriesCat getCategory() {
@@ -113,62 +97,6 @@ public class Product implements Serializable {
         this.photo = photo;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public AccessoriesCat getAccessories() {
-        return Accessories;
-    }
-
-    public void setAccessories(AccessoriesCat accessories) {
-        Accessories = accessories;
-    }
-
-    public ShoesCat getShoes() {
-        return Shoes;
-    }
-
-    public void setShoes(ShoesCat shoes) {
-        Shoes = shoes;
-    }
-
-    public BagsCat getBags() {
-        return Bags;
-    }
-
-    public void setBags(BagsCat bags) {
-        Bags = bags;
-    }
-
-    public ClothesCat getClothes() {
-        return Clothes;
-    }
-
-    public void setClothes(ClothesCat clothes) {
-        Clothes = clothes;
-    }
-
-    public DecorCat getDecor() {
-        return Decor;
-    }
-
-    public void setDecor(DecorCat decor) {
-        Decor = decor;
-    }
-
-    public String getPhotos() {
-        return photos;
-    }
-
-    public void setPhotos(String photos) {
-        this.photos = photos;
-    }
-
     public String getSize() {
         return size;
     }
@@ -177,20 +105,12 @@ public class Product implements Serializable {
         this.size = size;
     }
 
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
     public String getPrice() {
-        return Price;
+        return price;
     }
 
     public void setPrice(String price) {
-        Price = price;
+        this.price = price;
     }
 
     public boolean isGender() {
@@ -216,5 +136,21 @@ public class Product implements Serializable {
     public void setCategory(AccessoriesCat category) {
         this.category = category;
     }
-}
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", color='" + color + '\'' +
+                ", category=" + category +
+                ", category=" + category +
+                ", category=" + category +
+                ", category=" + category +
+                ", category=" + category +
+                ", photo='" + photo + '\'' +
+                ", size='" + size + '\'' +
+                ", price='" + price + '\'' +
+                ", Gender=" + Gender +
+                '}';
+    }}

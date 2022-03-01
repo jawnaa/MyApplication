@@ -8,6 +8,22 @@
     tools:context=".AddProduct">
 
     <EditText
+        android:id="@+id/etDescriptionAddProduct"
+        android:layout_width="131dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="256dp"
+        android:layout_marginBottom="13dp"
+        android:drawableTint="@color/pink"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text="Description:"
+        app:layout_constraintBottom_toTopOf="@+id/etColorAddProduct"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivPhotoAddProduct"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
         android:id="@+id/etNameAddProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -114,13 +130,14 @@
 
     <Spinner
         android:id="@+id/etSpinnerProduct"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="361dp"
+        android:layout_height="48dp"
         android:layout_marginStart="37dp"
         android:layout_marginEnd="37dp"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toTopOf="@+id/button4"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rdgroupMaleFemaleAddProduct"
         tools:ignore="SpeakableTextPresentCheck" />

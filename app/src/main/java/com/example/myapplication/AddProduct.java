@@ -11,6 +11,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.provider.MediaStore;
+import android.util.EventLogTags;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -35,7 +36,7 @@ import java.util.UUID;
 public class AddProduct extends AppCompatActivity {
 
     private static final String TAG = "AddProductActivity";
-    private EditText etName, etColor, etSize, etPrice;
+    private EditText etName,etDesc, etColor, etSize, etPrice;
     private Spinner spCat;
     private ImageView ivPhoto;
     private FirebaseServices fbs;
@@ -45,6 +46,7 @@ public class AddProduct extends AppCompatActivity {
     private Button btnDisplay;
     StorageReference storageReference;
     private boolean Gender;
+    private String refAfterSuccessfullUpload = null;
 
 
     @Override
@@ -52,6 +54,8 @@ public class AddProduct extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_Product);
+
+        getSupportActionBar().hide();
         connectComponents();
 
     }
@@ -59,6 +63,7 @@ public class AddProduct extends AppCompatActivity {
 
     private void connectComponents() {
         etName = findViewById(R.id.etNameAddProduct);
+        etDesc = findViewById(R.id.etDescriptionAddProduct);
         etColor = findViewById(R.id.etColorAddProduct);
         etSize = findViewById(R.id.etSizeAddProduct);
         etPrice = findViewById(R.id.etPriceAddProduct);
@@ -92,9 +97,10 @@ public class AddProduct extends AppCompatActivity {
 
     public void add(View view) {
         // check if any field is empty
-        String name, Color, Size, Price, photo, category;
+        String name,description, Color, Size, Price, photo, category;
         boolean gender;
         name = etName.getText().toString();
+        description = etDesc.getText().toString();
         Color = etColor.getText().toString();
         Size = etSize.getText().toString();
         Price = etPrice.getText().toString();
@@ -110,14 +116,14 @@ public class AddProduct extends AppCompatActivity {
             return;
         }
 
-        if (name.trim().isEmpty() || Color.trim().isEmpty() || Size.trim().isEmpty() ||
+        if (name.trim().isEmpty() || description.trim().isEmpty() ||Color.trim().isEmpty() || Size.trim().isEmpty() ||
                 Price.trim().isEmpty() || category.trim().isEmpty() || photo.trim().isEmpty()) {
             Toast.makeText(this, R.string.err_fields_empty, Toast.LENGTH_SHORT).show();
             return;
         }
 
-        Product product = new Product(AccessoriesCat.valueOf(category), ShoesCat.valueOf(category),
-                BagsCat.valueOf(category), ClothesCat.valueOf(category), DecorCat.valueOf(category), photo, Size, Color, Price,Gender);
+        Product product = new Product(name,description , Color,AccessoriesCat.valueOf(category), ShoesCat.valueOf(category),
+                BagsCat.valueOf(category), ClothesCat.valueOf(category), DecorCat.valueOf(category), photo, Size, Price,Gender);
 
         fbs.getFirestore().collection("Product")
                 .add(product)
