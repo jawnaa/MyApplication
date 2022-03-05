@@ -29,33 +29,52 @@ public class Product implements Serializable {
     private String description;
     private String color;
     private AccessoriesCat category;
-    private ShoesCat category;
-    private BagsCat category;
-    private ClothesCat category;
-    private DecorCat category;
+    private ShoesCat category1;
+    private BagsCat category2;
+    private ClothesCat category3;
+    private DecorCat category4;
     private String photo;
     private String size;
     private String price;
-    private boolean Gender;
+    private boolean gender;
 
-
-    public Product(){
+    public Product(String name, String description, String color, AccessoriesCat category,
+                   ShoesCat category1, BagsCat category2, ClothesCat category3, DecorCat category4, String photo,
+                   String size, String price, boolean Gender) {
+        this.name = name;
+        this.description = description;
+        this.color = color;
+        this.category = category;
+        this.category1 = category1;
+        this.category2 = category2;
+        this.category3 = category3;
+        this.category4 = category4;
+        this.photo = photo;
+        this.size = size;
+        this.price = price;
+        this.gender = Gender;
     }
 
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", color='" + color + '\'' +
+                ", category=" + category +
+                ", category1=" + category1 +
+                ", category2=" + category2 +
+                ", category3=" + category3 +
+                ", category4=" + category4 +
+                ", photo='" + photo + '\'' +
+                ", size='" + size + '\'' +
+                ", price='" + price + '\'' +
+                ", Gender=" + gender +
+                '}';
+    }
 
-public  Product  ( String name,String description, String color,AccessoriesCat category,
-                   ShoesCat category,BagsCat category,ClothesCat category,DecorCat category,String photo,
-                   String size,String price,boolean Gender) {
-    this.name = name;
-    this.description = description;
-    this.color = color;
-    this.category = category;
-    this.photo = photo;
-    this.size = size;
-    this.price = price;
-    this.Gender = Gender;
-}
+
 
     public String getName() {
         return name;
@@ -85,8 +104,40 @@ public  Product  ( String name,String description, String color,AccessoriesCat c
         return category;
     }
 
-    public void setCategory(DecorCat category) {
+    public void setCategory(AccessoriesCat category) {
         this.category = category;
+    }
+
+    public ShoesCat getCategory1() {
+        return category1;
+    }
+
+    public void setCategory1(ShoesCat category1) {
+        this.category1 = category1;
+    }
+
+    public BagsCat getCategory2() {
+        return category2;
+    }
+
+    public void setCategory2(BagsCat category2) {
+        this.category2 = category2;
+    }
+
+    public ClothesCat getCategory3() {
+        return category3;
+    }
+
+    public void setCategory3(ClothesCat category3) {
+        this.category3 = category3;
+    }
+
+    public DecorCat getCategory4() {
+        return category4;
+    }
+
+    public void setCategory4(DecorCat category4) {
+        this.category4 = category4;
     }
 
     public String getPhoto() {
@@ -114,43 +165,17 @@ public  Product  ( String name,String description, String color,AccessoriesCat c
     }
 
     public boolean isGender() {
-        return Gender;
+        return gender;
     }
 
     public void setGender(boolean gender) {
-        Gender = gender;
+        this.gender = gender;
     }
 
-    public void setCategory(ClothesCat category) {
-        this.category = category;
+    public boolean getGender()
+    {
+        return this.gender;
     }
 
-    public void setCategory(BagsCat category) {
-        this.category = category;
-    }
 
-    public void setCategory(ShoesCat category) {
-        this.category = category;
-    }
-
-    public void setCategory(AccessoriesCat category) {
-        this.category = category;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", color='" + color + '\'' +
-                ", category=" + category +
-                ", category=" + category +
-                ", category=" + category +
-                ", category=" + category +
-                ", category=" + category +
-                ", photo='" + photo + '\'' +
-                ", size='" + size + '\'' +
-                ", price='" + price + '\'' +
-                ", Gender=" + Gender +
-                '}';
-    }}
+}

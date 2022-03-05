@@ -29,7 +29,11 @@ public class ProductDetailsActivity  extends AppCompatActivity {
         tvColor.setText(product.getColor());
         tvSize.setText(product.getSize());
         tvPrice.setText(product.getPrice());
-        tvGender.setText(product.getGender());
+        if (product.getGender() == true)
+            tvGender.setText("for women ");
+        else
+            tvGender.setText("for men");
+
         Picasso.get().load(product.getPhoto()).into(ivPhoto);
 
     }
