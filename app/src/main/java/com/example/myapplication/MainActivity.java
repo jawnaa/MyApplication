@@ -51,20 +51,33 @@ public class MainActivity extends AppCompatActivity
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // TODO: commands if successful
+                            // TODO: goto all products page
                         } else {
 
 
                             Toast.makeText(MainActivity.this, "Username or password is empty!", Toast.LENGTH_SHORT).show();
                             return;
                         }
-
-
-
                     }
                 });
 
     }
+
+
+    public void gotoSignup(View view) {
+        Intent i = new Intent(this, SignupActivity.class);
+        startActivity(i);
+    }
+    public void gotoAddProduct (View view) {
+        Intent i = new Intent(this, AddProduct.class);
+        startActivity(i);
+    }
+
+    public void gotoAllProduct(View view) {
+        Intent i = new Intent(this, AllProductActivity.class);
+        startActivity(i);
+    }
+}
 
 
 }

@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#00CE1919"
         android:text="sign up"
-        android:onClick="Signup"
+        android:onClick="gotoSignup"
         tools:layout_editor_absoluteX="162dp"
         tools:layout_editor_absoluteY="451dp"
         tools:ignore="OnClick" />

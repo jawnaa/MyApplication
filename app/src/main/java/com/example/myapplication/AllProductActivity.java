@@ -24,8 +24,6 @@ public class AllProductActivity extends AppCompatActivity {
     ArrayList<Product> products;
     MyCallback myCallback;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,14 +42,7 @@ public class AllProductActivity extends AppCompatActivity {
             }
         };
 
-        // set up the RecyclerView
-       // RecyclerView recyclerView = findViewById(R.id.rvAllProducts);
-       // recyclerView.setLayoutManager(new LinearLayoutManager(this));
-       //adapter = new AdapterProduct(this, products);
-        //recyclerView.setAdapter(adapter);
     }
-
-
 
       private  void readData()
       {
