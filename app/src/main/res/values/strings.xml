@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="err_fields_empty">Some fields are empty!</string>
+    <string name="err_incorrect_user_password">Some fields are empty!</string>
+    <string name="err_firebase_general">Some fields are empty!</string>
 </resources>

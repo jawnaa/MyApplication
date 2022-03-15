@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -11,12 +12,11 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity
 {
     private EditText etUsername, etPassword;
-    private FirebaseAuth auth;
+    private FirebaseServices fbs;
     private Utilities utils;
 
     @Override
@@ -24,9 +24,9 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        etUsername = findViewById(R.id.etUsernamemain);
+        etUsername = findViewById(R.id.etUsernameSignup);
         etPassword = findViewById(R.id.etPasswordmain);
-        auth = FirebaseAuth.getInstance();
+        fbs = FirebaseServices.getInstance();
         utils= Utilities. getInstance();
     }
 
@@ -46,20 +46,20 @@ public class MainActivity extends AppCompatActivity
             return;
         }
 
-        auth.signInWithEmailAndPassword(username, password)
+        fbs.getAuth().signInWithEmailAndPassword(username, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // TODO: goto all products page
+                            Intent i = new Intent(MainActivity.this, AllProductActivity.class);
+                            startActivity(i);
+
                         } else {
-
-
-                            Toast.makeText(MainActivity.this, "Username or password is empty!", Toast.LENGTH_SHORT).show();
-                            return;
+                            Toast.makeText(MainActivity.this, R.string.err_incorrect_user_password, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+
 
     }
 
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity
 }
 
 
-}
+
 
 
 

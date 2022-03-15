@@ -29,6 +29,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.util.UUID;
@@ -47,6 +48,7 @@ public class AddProduct extends AppCompatActivity {
     StorageReference storageReference;
     private boolean Gender;
     private String refAfterSuccessfullUpload = null;
+    private String downloadableURL = "";
 
 
     @Override
@@ -107,7 +109,8 @@ public class AddProduct extends AppCompatActivity {
         category = spCat.getSelectedItem().toString();
         if (ivPhoto.getDrawable() == null)
             photo = "no_image";
-        else photo = ivPhoto.getDrawable().toString();
+        else photo = downloadableURL;
+
         int selectedId = radioGroup.getCheckedRadioButtonId();
 
         Toast.makeText(AddProduct.this, rd1.getText(), Toast.LENGTH_SHORT).show();
@@ -154,94 +157,95 @@ public class AddProduct extends AppCompatActivity {
         if (requestCode == 40) {
             if (resultCode == Activity.RESULT_OK) {
                 if (data != null) {
-                    try {
-                        filePath = data.getData();
-                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), data.getData());
-                        ivPhoto.setBackground(null);
-                        ivPhoto.setImageBitmap(bitmap);
-                        uploadImage();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+
+                    filePath = data.getData();
+                    ivPhoto.setBackground(null);
+                    Picasso.get().load(filePath).into(ivPhoto);
+                    uploadImage();
+
+                } else if (resultCode == Activity.RESULT_CANCELED) {
+                    Toast.makeText(this, "Canceled", Toast.LENGTH_SHORT).show();
                 }
-            } else if (resultCode == Activity.RESULT_CANCELED) {
-                Toast.makeText(this, "Canceled", Toast.LENGTH_SHORT).show();
+            }
+
+        }
+    }
+
+
+        private void uploadImage()
+        {
+            if (filePath != null) {
+
+                // Code for showing progressDialog while uploading
+                ProgressDialog progressDialog
+                        = new ProgressDialog(this);
+                progressDialog.setTitle("Uploading...");
+                progressDialog.show();
+
+                // Defining the child of storageReference
+                String fileNameStr = filePath.toString().substring(filePath.toString().lastIndexOf("/") + 1);
+                StorageReference ref
+                        = storageReference
+                        .child(
+                                "images/"
+                                        + fileNameStr);
+
+                // adding listeners on upload
+                // or failure of image
+                downloadableURL = ref.getDownloadUrl().toString();
+                ref.putFile(filePath)
+                        .addOnSuccessListener(
+                                new OnSuccessListener<UploadTask.TaskSnapshot>() {
+
+                                    @Override
+                                    public void onSuccess(
+                                            UploadTask.TaskSnapshot taskSnapshot) {
+
+                                        // Image uploaded successfully
+                                        // Dismiss dialog
+                                        progressDialog.dismiss();
+                                        Toast
+                                                .makeText(AddProduct.this,
+                                                        "Image Uploaded!!",
+                                                        Toast.LENGTH_SHORT)
+                                                .show();
+                                        refAfterSuccessfullUpload = ref.toString();
+                                    }
+                                })
+
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+
+                                // Error, Image not uploaded
+                                progressDialog.dismiss();
+                                Toast
+                                        .makeText(AddProduct.this,
+                                                "Failed " + e.getMessage(),
+                                                Toast.LENGTH_SHORT)
+                                        .show();
+                            }
+                        })
+                        .addOnProgressListener(
+                                new OnProgressListener<UploadTask.TaskSnapshot>() {
+
+                                    // Progress Listener for loading
+                                    // percentage on the dialog box
+                                    @Override
+                                    public void onProgress(
+                                            UploadTask.TaskSnapshot taskSnapshot) {
+                                        double progress
+                                                = (100.0
+                                                * taskSnapshot.getBytesTransferred()
+                                                / taskSnapshot.getTotalByteCount());
+                                        progressDialog.setMessage(
+                                                "Uploaded "
+                                                        + (int) progress + "%");
+                                    }
+                                });
             }
         }
-
     }
-
-
-    private void uploadImage() {
-        if (filePath != null) {
-
-            // Code for showing progressDialog while uploading
-            final ProgressDialog progressDialog
-                    = new ProgressDialog(this);
-            progressDialog.setTitle("Uploading...");
-            progressDialog.show();
-
-            // Defining the child of storageReference
-            StorageReference ref
-                    = storageReference
-                    .child(
-                            "images/"
-                                    + UUID.randomUUID().toString());
-
-            // adding listeners on upload
-            // or failure of image
-            ref.putFile(filePath)
-                    .addOnSuccessListener(
-                            new OnSuccessListener<UploadTask.TaskSnapshot>() {
-
-                                @Override
-                                public void onSuccess(
-                                        UploadTask.TaskSnapshot taskSnapshot) {
-
-                                    // Image uploaded successfully
-                                    // Dismiss dialog
-                                    progressDialog.dismiss();
-                                    Toast
-                                            .makeText(AddProduct.this,
-                                                    "Image Uploaded!!",
-                                                    Toast.LENGTH_SHORT)
-                                            .show();
-                                }
-                            })
-
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-
-                            // Error, Image not uploaded
-                            progressDialog.dismiss();
-                            Toast
-                                    .makeText(AddProduct.this,
-                                            "Failed " + e.getMessage(),
-                                            Toast.LENGTH_SHORT)
-                                    .show();
-                        }
-                    })
-                    .addOnProgressListener(
-                            new OnProgressListener<UploadTask.TaskSnapshot>() {
-
-                                // Progress Listener for loading
-                                // percentage on the dialog box
-                                @Override
-                                public void onProgress(
-                                        UploadTask.TaskSnapshot taskSnapshot) {
-                                    double progress
-                                            = (100.0
-                                            * taskSnapshot.getBytesTransferred()
-                                            / taskSnapshot.getTotalByteCount());
-                                    progressDialog.setMessage(
-                                            "Uploaded "
-                                                    + (int) progress + "%");
-                                }
-                            });
-        }
-    }
-}
 
 
 

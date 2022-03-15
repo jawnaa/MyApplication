@@ -1,28 +1,6 @@
 package com.example.myapplication;
 import java.io.Serializable;
-enum AccessoriesCat
-{
-    scarf,ring,earrings,bracelet,necklace
-}
 
-enum ShoesCat
-{
-    Sandals , flipflop, sneakers
-}
-enum BagsCat
-{
-    backpack, laptopbag, wallet
-}
-
-enum ClothesCat
-{
-    dress, tshirt, pants, socks
-}
-
-enum DecorCat
-{
-    decoration, blankets, tables, mirror
-}
 
 public class Product implements Serializable {
     private String name;

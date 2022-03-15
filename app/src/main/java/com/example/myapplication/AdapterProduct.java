@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.io.Serializable;
 
 import java.util.List;
@@ -54,6 +56,7 @@ import java.util.List;
         public void onBindViewHolder(AdapterProduct.ViewHolder holder, int position) {
             Product product = mData.get(position);
             holder.tvName.setText(product.getColor());
+            Picasso.get().load(product.getPhoto()).into(holder.ivPhoto);
             //holder.ivPhoto.setImageDrawable(rest.getPhoto());
         }
 
