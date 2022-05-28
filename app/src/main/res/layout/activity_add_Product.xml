@@ -11,137 +11,130 @@
         android:id="@+id/etDescriptionAddProduct"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="162dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="336dp"
+        android:layout_marginBottom="134dp"
         android:drawableTint="@color/pink"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:text="Description:"
         app:layout_constraintBottom_toTopOf="@+id/etSpinnerProduct"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/etNameAddProduct"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/etPriceAddProduct"
+        app:layout_constraintStart_toStartOf="@+id/etPriceAddProduct"
+        app:layout_constraintTop_toBottomOf="@+id/etPriceAddProduct" />
 
     <EditText
         android:id="@+id/etNameAddProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:layout_marginEnd="33dp"
-        android:layout_marginBottom="13dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="131dp"
+        android:layout_marginBottom="259dp"
         android:drawableTint="@color/pink"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:text="Name of product:"
-        app:layout_constraintBottom_toTopOf="@+id/etColorAddProduct"
-        app:layout_constraintEnd_toStartOf="@+id/etDescriptionAddProduct"
+        app:layout_constraintBottom_toTopOf="@+id/rdFemaleAddProduct"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivPhotoAddProduct" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etColorAddProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="21dp"
+        android:layout_marginBottom="14dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:text="Color:"
-        app:layout_constraintBottom_toTopOf="@+id/etSizeAddProduct"
+        app:layout_constraintBottom_toTopOf="@+id/etPriceAddProduct"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNameAddProduct" />
+        app:layout_constraintTop_toBottomOf="@+id/etSizeAddProduct" />
 
     <EditText
         android:id="@+id/etSizeAddProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="15dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:text="Size:"
-        app:layout_constraintBottom_toTopOf="@+id/etPriceAddProduct"
+        app:layout_constraintBottom_toTopOf="@+id/etColorAddProduct"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etColorAddProduct" />
+        app:layout_constraintTop_toBottomOf="@+id/etNameAddProduct" />
 
     <EditText
         android:id="@+id/etPriceAddProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="11dp"
+        android:layout_marginBottom="14dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:text="Price:"
-        app:layout_constraintBottom_toTopOf="@+id/rdgroupMaleFemaleAddProduct"
+        app:layout_constraintBottom_toTopOf="@+id/etDescriptionAddProduct"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSizeAddProduct" />
+        app:layout_constraintTop_toBottomOf="@+id/etColorAddProduct" />
 
     <ImageView
         android:id="@+id/ivPhotoAddProduct"
-        android:layout_width="254dp"
+        android:layout_width="100dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="38dp"
+        android:layout_marginBottom="15dp"
         app:layout_constraintBottom_toTopOf="@+id/etNameAddProduct"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars" />
 
-    <RadioGroup
-        android:id="@+id/rdgroupMaleFemaleAddProduct"
-        android:layout_width="99dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="11dp"
-        app:layout_constraintBottom_toTopOf="@+id/etSpinnerProduct"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPriceAddProduct">
-
-        <RadioButton
-            android:id="@+id/rdMaleAddProduct"
-            android:layout_width="88dp"
-            android:layout_height="48dp"
-            android:text="male" />
-
-        <RadioButton
-            android:id="@+id/rdFemaleAddProduct"
-            android:layout_width="91dp"
-            android:layout_height="48dp"
-            android:text="female" />
-    </RadioGroup>
-
     <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="#B7C7D5"
         android:onClick="add"
         android:text="add"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/etSpinnerProduct"
         app:layout_constraintTop_toBottomOf="@+id/etSpinnerProduct" />
 
     <Spinner
         android:id="@+id/etSpinnerProduct"
-        android:layout_width="0dp"
+        android:layout_width="85dp"
         android:layout_height="0dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginEnd="13dp"
-        android:layout_marginBottom="120dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/etDescriptionAddProduct"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etDescriptionAddProduct"
         tools:ignore="SpeakableTextPresentCheck" />
+
+    <RadioButton
+        android:id="@+id/rdFemaleAddProduct"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="7dp"
+        android:text="female"
+        app:layout_constraintBottom_toTopOf="@+id/rdMaleAddProduct"
+        app:layout_constraintEnd_toEndOf="@+id/rdMaleAddProduct"
+        app:layout_constraintStart_toStartOf="@+id/rdMaleAddProduct"
+        app:layout_constraintTop_toBottomOf="@+id/etNameAddProduct" />
+
+    <RadioButton
+        android:id="@+id/rdMaleAddProduct"
+        android:layout_width="91dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="174dp"
+        android:text="male"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rdFemaleAddProduct" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

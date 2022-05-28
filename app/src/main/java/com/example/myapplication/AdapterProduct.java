@@ -47,7 +47,7 @@ import java.util.List;
         // inflates the row layout from xml when needed
         @Override
         public AdapterProduct.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = mInflater.inflate(R.layout.rowproduct12, parent, false);
+            View view = mInflater.inflate(R.layout.product_row, parent, false);
             return new AdapterProduct.ViewHolder(view);
         }
 

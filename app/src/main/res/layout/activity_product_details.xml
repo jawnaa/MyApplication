@@ -6,82 +6,74 @@
     android:layout_height="match_parent">
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="47dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/tvNameProductDetails"
-        android:layout_width="149dp"
+        android:layout_width="0dp"
         android:layout_height="42dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="215dp"
-        android:layout_marginBottom="124dp"
         android:text="Name of product"
-        app:layout_constraintBottom_toTopOf="@+id/chipGroup"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="150dp" />
 
     <TextView
         android:id="@+id/tvColorProductDetails"
-        android:layout_width="152dp"
-        android:layout_height="36dp"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
         android:text="Color"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="286dp" />
+        tools:layout_editor_absoluteX="74dp"
+        tools:layout_editor_absoluteY="201dp" />
 
     <TextView
         android:id="@+id/tvSizeProductDetails"
-        android:layout_width="152dp"
-        android:layout_height="38dp"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
         android:text="Size"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="322dp" />
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="256dp" />
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/chipGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
-        android:layout_marginBottom="357dp"
         android:rotationY="141"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tvSizeProductDetails"
-        app:layout_constraintTop_toBottomOf="@+id/tvNameProductDetails">
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="303dp">
 
     </com.google.android.material.chip.ChipGroup>
 
     <TextView
         android:id="@+id/tvPriceProductDetails"
-        android:layout_width="149dp"
-        android:layout_height="32dp"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
         android:text="Price"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="360dp" />
+        tools:layout_editor_absoluteX="74dp"
+        tools:layout_editor_absoluteY="369dp" />
 
     <TextView
         android:id="@+id/tvGenderProductDetails"
-        android:layout_width="151dp"
-        android:layout_height="32dp"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
         android:text="Gender"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="254dp" />
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="311dp" />
 
     <TextView
         android:id="@+id/tvDescriptionProductDetails"
         android:layout_width="339dp"
-        android:layout_height="220dp"
+        android:layout_height="221dp"
         android:text="Description"
         tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="421dp" />
+        tools:layout_editor_absoluteY="459dp" />
 
     <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="45dp"
+        tools:layout_editor_absoluteX="141dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
@@ -89,7 +81,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="280dp"
-        tools:layout_editor_absoluteY="48dp"
         tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

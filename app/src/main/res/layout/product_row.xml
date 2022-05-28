@@ -8,14 +8,15 @@
     <ImageView
         android:id="@+id/ivPhotoProductRow"
         android:layout_width="8dp"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/tvNameProductRow"
         android:layout_width="wrap_content"
-        android:layout_height="74dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="Name the product" />
+        android:text="name of product" />
+
 </LinearLayout>
