@@ -70,5 +70,9 @@ public class SignupActivity extends AppCompatActivity {
                     }
                 });
     }
-}
 
+    public void gotoAllProduct(View view) {
+        Intent i = new Intent(this, AllProductActivity.class);
+        startActivity(i);
+    }
+}

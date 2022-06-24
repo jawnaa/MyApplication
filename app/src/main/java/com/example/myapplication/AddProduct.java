@@ -40,13 +40,12 @@ public class AddProduct extends AppCompatActivity {
 
     private static final String TAG = "AddProductActivity";
     private EditText etName,etDesc, etColor, etSize, etPrice;
-    private Spinner spCat;
+    private Spinner spCat1,spCat2,spCat3,spCat4,spCat5;
     private ImageView ivPhoto;
     private FirebaseServices fbs;
     private Uri filePath;
     private RadioGroup radioGroup;
     private RadioButton rd1, rd2;
-    private Button btnDisplay;
     StorageReference storageReference;
     private boolean Gender;
     private String refAfterSuccessfullUpload = null;
@@ -71,17 +70,22 @@ public class AddProduct extends AppCompatActivity {
         etColor = findViewById(R.id.etColorAddProduct);
         etSize = findViewById(R.id.etSizeAddProduct);
         etPrice = findViewById(R.id.etPriceAddProduct);
-        spCat = findViewById(R.id.etSpinnerProduct);
+        spCat1 = findViewById(R.id.etSpinnerProduct);
+        spCat2 = findViewById(R.id.etSpinnerProduct2);
+        spCat3 = findViewById(R.id.etSpinnerProduct3);
+        spCat4 = findViewById(R.id.etSpinnerProduct4);
+        spCat5 = findViewById(R.id.etSpinnerProduct5);
         ivPhoto = findViewById(R.id.ivPhotoAddProduct);
         fbs = FirebaseServices.getInstance();
-        spCat.setAdapter(new ArrayAdapter<AccessoriesCat>(this, android.R.layout.simple_list_item_1, AccessoriesCat.values()));
-        spCat.setAdapter(new ArrayAdapter<ShoesCat>(this, android.R.layout.simple_list_item_1, ShoesCat.values()));
-        spCat.setAdapter(new ArrayAdapter<BagsCat>(this, android.R.layout.simple_list_item_1, BagsCat.values()));
-        spCat.setAdapter(new ArrayAdapter<ClothesCat>(this, android.R.layout.simple_list_item_1, ClothesCat.values()));
-        spCat.setAdapter(new ArrayAdapter<DecorCat>(this, android.R.layout.simple_list_item_1, DecorCat.values()));
+        spCat1.setAdapter(new ArrayAdapter<AccessoriesCat>(this, android.R.layout.simple_list_item_1, AccessoriesCat.values()));
+        spCat2.setAdapter(new ArrayAdapter<ShoesCat>(this, android.R.layout.simple_list_item_1, ShoesCat.values()));
+        spCat3.setAdapter(new ArrayAdapter<BagsCat>(this, android.R.layout.simple_list_item_1, BagsCat.values()));
+        spCat4.setAdapter(new ArrayAdapter<ClothesCat>(this, android.R.layout.simple_list_item_1, ClothesCat.values()));
+        spCat5.setAdapter(new ArrayAdapter<DecorCat>(this, android.R.layout.simple_list_item_1, DecorCat.values()));
         radioGroup = (RadioGroup) findViewById(R.id.radio);
-        btnDisplay = (Button) findViewById(R.id.btnDisplay);
         storageReference = fbs.getStorage().getReference();
+        rd1=findViewById(R.id.rdFemaleAddProduct);
+        rd2= findViewById(R.id.rdMaleAddProduct);
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             public void onCheckedChanged(RadioGroup group, int checkedId) {

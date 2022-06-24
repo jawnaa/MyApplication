@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+    Typeface typeface = Typeface.createFromAsset(getAssets(), fontName);
+    textView.setTypeface(typeface);
 
     <ImageView
         android:id="@+id/ivPhotoProductRow"
