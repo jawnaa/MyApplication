@@ -73,7 +73,7 @@
         android:layout_height="100dp"
         tools:layout_editor_absoluteX="156dp"
         tools:layout_editor_absoluteY="16dp"
-        tools:src="@tools:sample/avatars" />
+        tools:src="@drawable/img_1" />
 
     <Button
         android:id="@+id/button4"

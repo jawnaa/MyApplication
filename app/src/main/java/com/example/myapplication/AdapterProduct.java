@@ -55,7 +55,7 @@ import java.util.List;
         @Override
         public void onBindViewHolder(AdapterProduct.ViewHolder holder, int position) {
             Product product = mData.get(position);
-            holder.tvName.setText(product.getColor());
+            holder.tvName.setText(product.getName());
             Picasso.get().load(product.getPhoto()).into(holder.ivPhoto);
             //holder.ivPhoto.setImageDrawable(rest.getPhoto());
         }

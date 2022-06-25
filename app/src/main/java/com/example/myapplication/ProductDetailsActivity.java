@@ -29,7 +29,7 @@ public class ProductDetailsActivity  extends AppCompatActivity {
         tvColor.setText(product.getColor());
         tvSize.setText(product.getSize());
         tvPrice.setText(product.getPrice());
-        if (product.getGender() == true)
+        if (product.isGender())
             tvGender.setText("for women ");
         else
             tvGender.setText("for men");

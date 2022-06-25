@@ -40,7 +40,7 @@ public class AddProduct extends AppCompatActivity {
 
     private static final String TAG = "AddProductActivity";
     private EditText etName,etDesc, etColor, etSize, etPrice;
-    private Spinner spCat1,spCat2,spCat3,spCat4,spCat5;
+    private Spinner spAcc,spBag,spClo,spDec,spSho;
     private ImageView ivPhoto;
     private FirebaseServices fbs;
     private Uri filePath;
@@ -70,18 +70,18 @@ public class AddProduct extends AppCompatActivity {
         etColor = findViewById(R.id.etColorAddProduct);
         etSize = findViewById(R.id.etSizeAddProduct);
         etPrice = findViewById(R.id.etPriceAddProduct);
-        spCat1 = findViewById(R.id.etSpinnerProduct);
-        spCat2 = findViewById(R.id.etSpinnerProduct2);
-        spCat3 = findViewById(R.id.etSpinnerProduct3);
-        spCat4 = findViewById(R.id.etSpinnerProduct4);
-        spCat5 = findViewById(R.id.etSpinnerProduct5);
+        spAcc = findViewById(R.id.etSpinnerProduct);
+        spBag = findViewById(R.id.etSpinnerProduct2);
+        spClo = findViewById(R.id.etSpinnerProduct3);
+        spDec = findViewById(R.id.etSpinnerProduct4);
+        spSho = findViewById(R.id.etSpinnerProduct5);
         ivPhoto = findViewById(R.id.ivPhotoAddProduct);
         fbs = FirebaseServices.getInstance();
-        spCat1.setAdapter(new ArrayAdapter<AccessoriesCat>(this, android.R.layout.simple_list_item_1, AccessoriesCat.values()));
-        spCat2.setAdapter(new ArrayAdapter<ShoesCat>(this, android.R.layout.simple_list_item_1, ShoesCat.values()));
-        spCat3.setAdapter(new ArrayAdapter<BagsCat>(this, android.R.layout.simple_list_item_1, BagsCat.values()));
-        spCat4.setAdapter(new ArrayAdapter<ClothesCat>(this, android.R.layout.simple_list_item_1, ClothesCat.values()));
-        spCat5.setAdapter(new ArrayAdapter<DecorCat>(this, android.R.layout.simple_list_item_1, DecorCat.values()));
+        spAcc.setAdapter(new ArrayAdapter<AccessoriesCat>(this, android.R.layout.simple_list_item_1, AccessoriesCat.values()));
+        spBag.setAdapter(new ArrayAdapter<ShoesCat>(this, android.R.layout.simple_list_item_1, ShoesCat.values()));
+        spClo.setAdapter(new ArrayAdapter<BagsCat>(this, android.R.layout.simple_list_item_1, BagsCat.values()));
+        spDec.setAdapter(new ArrayAdapter<ClothesCat>(this, android.R.layout.simple_list_item_1, ClothesCat.values()));
+        spSho.setAdapter(new ArrayAdapter<DecorCat>(this, android.R.layout.simple_list_item_1, DecorCat.values()));
         radioGroup = (RadioGroup) findViewById(R.id.radio);
         storageReference = fbs.getStorage().getReference();
         rd1=findViewById(R.id.rdFemaleAddProduct);
@@ -107,14 +107,18 @@ public class AddProduct extends AppCompatActivity {
         showDialogue();
 
         // check if any field is empty
-        String name,description, Color, Size, Price, photo, category;
+        String name,description, Color, Size, Price, photo, categoryAcc,categoryBag,categoryClo,categoryDec,categorySho;
         boolean gender;
         name = etName.getText().toString();
         description = etDesc.getText().toString();
         Color = etColor.getText().toString();
         Size = etSize.getText().toString();
         Price = etPrice.getText().toString();
-        category = spCat.getSelectedItem().toString();
+        categoryAcc = spAcc.getSelectedItem().toString();
+        categoryBag =  spBag.getSelectedItem().toString();
+        categoryClo = spClo.getSelectedItem().toString();
+        categoryDec = spDec.getSelectedItem().toString();
+        categorySho= spSho.getSelectedItem().toString();
         if (ivPhoto.getDrawable() == null)
             photo = "no_image";
         else photo = downloadableURL;
@@ -128,13 +132,13 @@ public class AddProduct extends AppCompatActivity {
         }
 
         if (name.trim().isEmpty() || description.trim().isEmpty() ||Color.trim().isEmpty() || Size.trim().isEmpty() ||
-                Price.trim().isEmpty() || category.trim().isEmpty() || photo.trim().isEmpty()) {
+                Price.trim().isEmpty() || categoryAcc.trim().isEmpty() ||categorySho.trim().isEmpty() ||categoryBag.trim().isEmpty() ||categoryDec.trim().isEmpty() ||categoryClo.trim().isEmpty() || photo.trim().isEmpty()) {
             Toast.makeText(this, R.string.err_fields_empty, Toast.LENGTH_SHORT).show();
             return;
         }
 
-        Product product = new Product(name,description , Color,AccessoriesCat.valueOf(category), ShoesCat.valueOf(category),
-                BagsCat.valueOf(category), ClothesCat.valueOf(category), DecorCat.valueOf(category), photo, Size, Price,Gender);
+        Product product = new Product(name,description , Color,AccessoriesCat.valueOf(categoryAcc), ShoesCat.valueOf(categorySho),
+                BagsCat.valueOf(categoryBag), ClothesCat.valueOf(categoryClo), DecorCat.valueOf(categoryDec), photo, Size, Price,Gender);
 
         fbs.getFirestore().collection("Product")
                 .add(product)

@@ -108,8 +108,7 @@ public class AllProductActivity extends AppCompatActivity {
                           }
                       });
 
-              // TODO: Added sorting
-              Collections.sort(products, new ProductComparator());
+
           }
           catch (Exception e)
           {

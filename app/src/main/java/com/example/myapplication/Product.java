@@ -6,33 +6,18 @@ public class Product implements Serializable {
     private String name;
     private String description;
     private String color;
-    private AccessoriesCat category;
-    private ShoesCat category1;
-    private BagsCat category2;
-    private ClothesCat category3;
-    private DecorCat category4;
+    private AccessoriesCat categoryAcc;
+    private ShoesCat categorySho;
+    private BagsCat categoryBag;
+    private ClothesCat categoryClo;
+    private DecorCat categoryDec;
     private String photo;
     private String size;
     private String price;
     private boolean gender;
 
-    public Product(String name, String description, String color, AccessoriesCat category,
-                   ShoesCat category1, BagsCat category2, ClothesCat category3, DecorCat category4, String photo,
-                   String size, String price, boolean Gender) {
-        this.name = name;
-        this.description = description;
-        this.color = color;
-        this.category = category;
-        this.category1 = category1;
-        this.category2 = category2;
-        this.category3 = category3;
-        this.category4 = category4;
-        this.photo = photo;
-        this.size = size;
-        this.price = price;
-        this.gender = Gender;
+    public Product(String name, String description, String color, AccessoriesCat valueOf, ShoesCat valueOf1, BagsCat valueOf2, ClothesCat valueOf3, DecorCat valueOf4, String photo, String size, String price, boolean gender) {
     }
-
 
     @Override
     public String toString() {
@@ -40,18 +25,17 @@ public class Product implements Serializable {
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", color='" + color + '\'' +
-                ", category=" + category +
-                ", category1=" + category1 +
-                ", category2=" + category2 +
-                ", category3=" + category3 +
-                ", category4=" + category4 +
+                ", categoryAcc=" + categoryAcc +
+                ", categorySho=" + categorySho +
+                ", categoryBag=" + categoryBag +
+                ", categoryClo=" + categoryClo +
+                ", categoryDec=" + categoryDec +
                 ", photo='" + photo + '\'' +
                 ", size='" + size + '\'' +
                 ", price='" + price + '\'' +
-                ", Gender=" + gender +
+                ", gender=" + gender +
                 '}';
     }
-
 
 
     public String getName() {
@@ -78,44 +62,44 @@ public class Product implements Serializable {
         this.color = color;
     }
 
-    public AccessoriesCat getCategory() {
-        return category;
+    public AccessoriesCat getCategoryAcc() {
+        return categoryAcc;
     }
 
-    public void setCategory(AccessoriesCat category) {
-        this.category = category;
+    public void setCategoryAcc(AccessoriesCat categoryAcc) {
+        this.categoryAcc = categoryAcc;
     }
 
-    public ShoesCat getCategory1() {
-        return category1;
+    public ShoesCat getCategorySho() {
+        return categorySho;
     }
 
-    public void setCategory1(ShoesCat category1) {
-        this.category1 = category1;
+    public void setCategorySho(ShoesCat categorySho) {
+        this.categorySho = categorySho;
     }
 
-    public BagsCat getCategory2() {
-        return category2;
+    public BagsCat getCategoryBag() {
+        return categoryBag;
     }
 
-    public void setCategory2(BagsCat category2) {
-        this.category2 = category2;
+    public void setCategoryBag(BagsCat categoryBag) {
+        this.categoryBag = categoryBag;
     }
 
-    public ClothesCat getCategory3() {
-        return category3;
+    public ClothesCat getCategoryClo() {
+        return categoryClo;
     }
 
-    public void setCategory3(ClothesCat category3) {
-        this.category3 = category3;
+    public void setCategoryClo(ClothesCat categoryClo) {
+        this.categoryClo = categoryClo;
     }
 
-    public DecorCat getCategory4() {
-        return category4;
+    public DecorCat getCategoryDec() {
+        return categoryDec;
     }
 
-    public void setCategory4(DecorCat category4) {
-        this.category4 = category4;
+    public void setCategoryDec(DecorCat categoryDec) {
+        this.categoryDec = categoryDec;
     }
 
     public String getPhoto() {
@@ -148,12 +132,10 @@ public class Product implements Serializable {
 
     public void setGender(boolean gender) {
         this.gender = gender;
-    }
-
-    public boolean getGender()
-    {
-        return this.gender;
-    }
+    }}
 
 
-}
+
+
+
+
